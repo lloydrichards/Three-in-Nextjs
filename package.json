@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^9.57.3",
     "@react-three/fiber": "^8.12.0",
     "@types/node": "18.15.3",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "@types/three": "^0.149.0",
+    "camera-controls": "^2.3.2",
     "daisyui": "^2.51.3",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",

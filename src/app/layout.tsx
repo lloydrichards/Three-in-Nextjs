@@ -19,6 +19,18 @@ export default function RootLayout({
             <li className="btn-ghost btn text-xl normal-case">
               <Link href="/">Home</Link>
             </li>
+            <li className="btn-ghost btn text-xl normal-case">
+              <Link href="/spinning-box">Boxes</Link>
+            </li>
+            <li className="btn-ghost btn text-xl normal-case">
+              <Link href="/camera-control">Camera</Link>
+            </li>
+            <li className="btn-ghost btn text-xl normal-case">
+              <Link href="/map-control">Map</Link>
+            </li>
+            <li className="btn-ghost btn text-xl normal-case">
+              <Link href="/labels">Labels</Link>
+            </li>
           </ul>
         </nav>
         <main className=" flex h-full w-full flex-col items-center justify-center">
