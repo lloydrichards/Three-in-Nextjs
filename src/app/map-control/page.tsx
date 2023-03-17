@@ -1,43 +1,64 @@
 "use client";
-import {
-  CameraControls,
-  GizmoHelper,
-  GizmoViewport,
-  Grid,
-  Icosahedron,
-  MapControls,
-  OrthographicCamera,
-} from "@react-three/drei";
-import { Canvas, Euler } from "@react-three/fiber";
-import { useRef, useState } from "react";
+import { Grid, MapControls, MapControlsProps } from "@react-three/drei";
+import { Canvas, useThree } from "@react-three/fiber";
+import React, { useEffect, useRef, useState } from "react";
 import { Building } from "./Building";
 
-const isometric: Euler = [Math.PI * (1 / 4), Math.PI * (4 / 6), 0];
+type ControlProps = { isometric?: boolean } & MapControlsProps;
+
+const Controls = React.forwardRef<
+  React.ElementRef<typeof MapControls>,
+  ControlProps
+>(({ isometric, ...props }, ref) => {
+  const { camera } = useThree();
+  useEffect(() => {
+    if (isometric) {
+      camera.position.set(50, 80, 100);
+      camera.rotation.set(0, 0, 0);
+    } else {
+      camera.position.set(0, 100, 0);
+      camera.rotation.set(0, 0, 0);
+    }
+  }, [isometric]);
+  return <MapControls ref={ref} enableRotate={false} {...props} />;
+});
 
 export default function Home() {
   const cameraControlRef = useRef<React.ElementRef<typeof MapControls>>(null!);
-
+  const [iso, setIso] = useState(false);
   return (
     <main className="h-full w-full">
       <nav className="absolute z-10 flex flex-col gap-2 p-4">
         <button
           className="btn-outline btn"
-          onClick={() => cameraControlRef.current.reset()}
+          onClick={() => {
+            cameraControlRef.current.reset();
+            setIso(false);
+          }}
         >
           Reset
+        </button>
+        <button
+          className={` btn ${iso ? "btn-info" : "btn-outline"}`}
+          onClick={() => {
+            setIso(!iso);
+          }}
+        >
+          Isometric
         </button>
       </nav>
       <Canvas
         orthographic
         camera={{
-          position: [80, 50, 100],
+          position: [0, 100, 0],
+          rotation: [-Math.PI / 2, 0, 0],
           zoom: 20,
           near: 1,
         }}
       >
         <ambientLight />
         <pointLight position={[100, 100, 10]} />
-        <MapControls ref={cameraControlRef} enableRotate={false} minZoom={10} />
+        <Controls ref={cameraControlRef} isometric={iso} />
         <group>
           <Building position={[0, 0, 0]} />
           <Building position={[0, 0, 30]} />
