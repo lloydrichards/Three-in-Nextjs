@@ -23,6 +23,7 @@ const Controls = React.forwardRef<
   }, [isometric]);
   return <MapControls ref={ref} enableRotate={false} {...props} />;
 });
+Controls.displayName = "Controls";
 
 export default function Home() {
   const cameraControlRef = useRef<React.ElementRef<typeof MapControls>>(null!);
