@@ -1,5 +1,5 @@
 import { Grid, Text } from "@react-three/drei";
-import React, { FC } from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 import { Color, DoubleSide } from "three";
 import LineageNode from "./LineageNode";
 
@@ -7,19 +7,22 @@ interface LineageProps {
   nodes: { id: number; label: string }[];
   edges: { id: number; start: number; end: number }[];
   selected: number | null;
+  setSelected: Dispatch<SetStateAction<number | null>>;
 }
 
-const Lineage: FC<LineageProps> = ({ nodes, edges, selected }) => {
+const Lineage: FC<LineageProps> = ({ nodes, edges, selected, setSelected }) => {
   return (
     <>
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       {nodes.map((n, i) => (
         <LineageNode
+          key={n.id}
           position={[i * 4, i * 4, 0]}
           color={selected == n.id ? new Color(0x1d8e00) : new Color(0x1d001f)}
           width={8}
           height={3}
+          onClick={(e) => setSelected(n.id)}
         >
           <Text position={[i * 4, i * 4, 0]}>{n.label}</Text>
         </LineageNode>

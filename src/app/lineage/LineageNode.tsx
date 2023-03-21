@@ -9,8 +9,7 @@ interface LineageNodeProps {
   width: number;
   height: number;
   borderRadius?: number;
-  onPointerOver?: (e: THREE.Event) => void;
-  onPointerOut?: (e: THREE.Event) => void;
+  onClick?: (e: THREE.Event) => void;
 }
 const LineageNode: FC<LineageNodeProps> = ({
   children,
@@ -19,8 +18,7 @@ const LineageNode: FC<LineageNodeProps> = ({
   width,
   height,
   borderRadius,
-  onPointerOut,
-  onPointerOver,
+  onClick,
 }) => {
   const meshRef = React.useRef<THREE.Mesh>(null);
   const contentGeometry = roundedRect(
@@ -36,8 +34,7 @@ const LineageNode: FC<LineageNodeProps> = ({
         position={position}
         ref={meshRef}
         // raycast={meshBounds}
-        onPointerOver={(e) => onPointerOver?.(e)}
-        onPointerOut={(e) => onPointerOut?.(e)}
+        onClick={onClick}
       >
         <shapeGeometry args={[contentGeometry]} />
         <meshBasicMaterial color={color} />

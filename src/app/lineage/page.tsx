@@ -28,7 +28,12 @@ export default function Home() {
     <main className=" grid h-full w-full grid-cols-5 gap-2">
       <Canvas camera={{ position: [0, 0, 10] }} className="col-span-3">
         <CustomCamera onZoomChange={() => {}} />
-        <Lineage selected={selected} nodes={node} edges={edge} />
+        <Lineage
+          selected={selected}
+          setSelected={setSelected}
+          nodes={node}
+          edges={edge}
+        />
       </Canvas>
       <div className="card col-span-2 gap-4 bg-base-300 p-4">
         <h1>Select a Node:</h1>
