@@ -10,9 +10,10 @@ const Controls = React.forwardRef<
   React.ElementRef<typeof MapControls>,
   ControlProps
 >(({ isometric, ...props }, ref) => {
-  const { camera } = useThree();
+  const camera = useThree((state) => state.camera);
   useEffect(() => {
     if (isometric) {
+      console.log(camera);
       camera.position.set(50, 80, 100);
       camera.rotation.set(0, 0, 0);
     } else {

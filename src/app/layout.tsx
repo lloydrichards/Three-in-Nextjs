@@ -31,9 +31,12 @@ export default function RootLayout({
             <li className="btn-ghost btn text-xl normal-case">
               <Link href="/labels">Labels</Link>
             </li>
+            <li className="btn-ghost btn text-xl normal-case">
+              <Link href="/lineage">Lineage</Link>
+            </li>
           </ul>
         </nav>
-        <main className=" flex h-full w-full flex-col items-center justify-center">
+        <main className=" flex h-[90%] w-full flex-col items-center justify-center">
           {children}
         </main>
       </body>

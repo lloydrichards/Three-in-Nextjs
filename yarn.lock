@@ -2753,6 +2753,11 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+use-cannon@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/use-cannon/-/use-cannon-0.5.3.tgz#8641736e94df886ee683517185ad55c38b363f07"
+  integrity sha512-zVn1rRQJ3rw5grOkkNaxRcjS3AWsklrwHsOkmFiUq7Ac+jOE3CEJtASDK2ErScPe85c3BZDRO+/y9UU7VfaD1g==
+
 util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
