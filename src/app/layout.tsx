@@ -34,6 +34,9 @@ export default function RootLayout({
             <li className="btn-ghost btn text-xl normal-case">
               <Link href="/lineage">Lineage</Link>
             </li>
+            <li className="btn-ghost btn text-xl normal-case">
+              <Link href="/third-person">3rd Person</Link>
+            </li>
           </ul>
         </nav>
         <main className=" flex h-[90%] w-full flex-col items-center justify-center">
