@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "../styles/globals.css";
+import NavBar from "./NavBar";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,31 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="h-full">
-        <nav className="navbar">
-          <ul className="flex flex-row">
-            <li className="btn-ghost btn text-xl normal-case">
-              <Link href="/">Home</Link>
-            </li>
-            <li className="btn-ghost btn text-xl normal-case">
-              <Link href="/spinning-box">Boxes</Link>
-            </li>
-            <li className="btn-ghost btn text-xl normal-case">
-              <Link href="/camera-control">Camera</Link>
-            </li>
-            <li className="btn-ghost btn text-xl normal-case">
-              <Link href="/map-control">Map</Link>
-            </li>
-            <li className="btn-ghost btn text-xl normal-case">
-              <Link href="/labels">Labels</Link>
-            </li>
-            <li className="btn-ghost btn text-xl normal-case">
-              <Link href="/lineage">Lineage</Link>
-            </li>
-            <li className="btn-ghost btn text-xl normal-case">
-              <Link href="/third-person">3rd Person</Link>
-            </li>
-          </ul>
-        </nav>
+        <NavBar />
         <main className=" flex h-[90%] w-full flex-col items-center justify-center">
           {children}
         </main>
